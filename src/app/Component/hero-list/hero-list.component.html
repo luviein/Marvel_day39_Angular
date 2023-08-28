@@ -1,0 +1,8 @@
+
+<p>hero list works</p>
+
+<div *ngIf="heroList">
+  <div *ngFor="let i of heroList">
+   <a [routerLink]="['/{{i}}']">{{i}}</a>
+  </div>
+</div>

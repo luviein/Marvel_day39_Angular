@@ -1,0 +1,15 @@
+<h1>Search</h1>
+
+<form [formGroup]="form" (ngSubmit)="process()">
+  <table>
+    <tr>
+      <td>Search</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td><button type="submit">Search</button></td>
+    </tr>
+  </table>
+
+
+</form>
