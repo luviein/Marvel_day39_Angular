@@ -1,1 +1,15 @@
-<p>hero works!</p>
+
+
+
+
+
+<table>
+  <tr>
+    <td><img [src]="heroData?.thumbnail"></td>
+  </tr>
+  <tr>
+    <td><h4>{{heroData?.characterName}}</h4></td>
+    <button type="button" (click)="inputComment()"style="max-width: 100%;">Comment</button>
+  </tr>
+</table>
+

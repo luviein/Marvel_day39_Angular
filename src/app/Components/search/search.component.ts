@@ -52,3 +52,11 @@ export class SearchComponent implements OnInit {
   }
 
 }
+
+
+// method 1
+
+// retrieve view 0, display in view 1
+
+// navigate to view 1 and retrieve & display (preferrred)
+// pass info from v0 > v1 (path variable, query string , service)

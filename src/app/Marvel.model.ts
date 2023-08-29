@@ -1,3 +1,5 @@
 export interface MarvelHero {
-  hero : string[]
+  id: number
+  characterName: string
+  thumbnail: string
 }

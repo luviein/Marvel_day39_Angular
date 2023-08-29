@@ -8,7 +8,14 @@ import { Observable, Subject } from 'rxjs';
 })
 export class MarvelServiceService {
   // private marvelUrl = "https://gateway.marvel.com:443/v1/public/characters"
-  private marvelUrl = "http://localhost:8080/api/characters"
+  // private marvelUrl = "http://localhost:8080/api/characters"
+  // private getOneHeroUrl = "http://localhost:8080/api/character/{id}"
+  // private commentsUrl = "http://localhost:8080/api/comment"
+
+  private marvelUrl = "/api/characters"
+  private getOneHeroUrl = "/api/character/{id}"
+  private commentsUrl = "/api/comment"
+
   constructor(private http: HttpClient) { }
   getHeroName(name : string, limit: number = 20, offset: number = 0): Observable<any> {
     const params = new HttpParams()
@@ -19,13 +26,23 @@ export class MarvelServiceService {
       // .set("apikey", "b5d7734b1a89b586ce8356c71d982d47")
       // .set("hash", "c5850daa28b32b501997f0a61dd4eabc")
 
-    return this.http.get(this.marvelUrl, {params})
+    return this.http.get<MarvelHero[]>(this.marvelUrl, {params})
   }
 
-  // heroEvent = new Subject<string[]>()
-  // emitHeroes(heroes: string[]){
-  //   return this.heroEvent.next(heroes)
-  // }
+  getOneHero(id: number) {
+    const url = this.getOneHeroUrl.replace('{id}', id.toString()); // Replace the placeholder
+    const params = new HttpParams()
+      .set("id", id.toString())
+
+
+    return this.http.get(this.getOneHeroUrl, {params})
+  }
+
+  postComments(commentData : any) {
+    return this.http.post(this.commentsUrl, commentData)
+  }
+
+
 
   heroList: Array<string> = []
   saveList(hero: any) {
@@ -34,6 +51,24 @@ export class MarvelServiceService {
 
   retrieveHero() {
     return this.heroList
+  }
+
+  heroName: string = ""
+  saveHero(hero: string) {
+    this.heroName = hero
+  }
+
+  retrieveHeroName() {
+    return this.heroName
+  }
+
+  heroId!: number
+  saveId(hero: number) {
+    this.heroId = hero
+  }
+
+  retrieveId() {
+    return this.heroId
   }
 
 }

@@ -1,0 +1,13 @@
+<h3>Comment - {{heroName}} </h3>
+
+<form [formGroup]="form" method="post" (ngSubmit)="process()">
+  <tr>
+    <td>
+      <textarea formControlName="comments" cols="30" rows="10"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td><button type="button" routerLink="['/']">Cancel</button></td>
+    <td><button type="submit">Post</button></td>
+  </tr>
+</form>
