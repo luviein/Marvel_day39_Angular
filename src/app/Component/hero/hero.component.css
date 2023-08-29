@@ -1,0 +1,7 @@
+.overflow {
+  background-color: rgb(255, 194, 171);
+  width: 400px;
+  height: 100px;
+
+  overflow: hidden;
+}

@@ -3,3 +3,8 @@ export interface MarvelHero {
   characterName: string
   thumbnail: string
 }
+
+export interface Comments {
+  c_id: string
+  comments: string
+}

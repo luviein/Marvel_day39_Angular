@@ -19,20 +19,13 @@ export class HeroListComponent implements OnInit {
   heroList: string[] = []
   sub$!: Subscription
 
-  constructor(private svc : MarvelServiceService,private cdRef: ChangeDetectorRef) {}
+  constructor(private svc : MarvelServiceService) {}
 
   ngOnInit(): void {
 
     console.log("retrieved >>>>>",this.svc.retrieveHero())
     this.heroList = this.svc.retrieveHero()
-    // this.sub$ = this.svc.heroEvent.subscribe(names => {
-    //   console.log(">>>>>>>",names)
-    //   this.heroList = names
 
-    //   console.log(">>> hero list component", this.receivedHeroList)
-    // })
-    // this.receivedHeroList$ = this.svc.heroEvent
-    // console.log("list >>>>>>", this.receivedHeroList$)
     this.display()
   }
 

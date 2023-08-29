@@ -1,6 +1,20 @@
+<!--
 
 
 
+<p *ngIf="comments">
+  Number of comments: {{ commentData.length }}
+</p>
+
+<div *ngIf="commentData; else noItems">
+  <div *ngFor="let comment of commentData">
+    <p>{{commentData.comments}}</p>
+  </div>
+</div>
+
+<ng-template #noItems>
+  <h2>Loading.....</h2>
+</ng-template> -->
 
 
 <table>
@@ -8,8 +22,21 @@
     <td><img [src]="heroData?.thumbnail"></td>
   </tr>
   <tr>
-    <td><h4>{{heroData?.characterName}}</h4></td>
+    <td><h2>{{heroData?.characterName}}</h2></td>
     <button type="button" (click)="inputComment()"style="max-width: 100%;">Comment</button>
   </tr>
 </table>
 
+<div>
+  <h3>Comments:</h3>
+
+  <div *ngIf="comments.length > 0; else noItems">
+    <div *ngFor="let comment of comments" class="overflow">
+      <p><strong>{{ comment.c_id }} posted</strong>: {{ comment.comments }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noItems>
+  <h2>No comments right now. Wanna add one?</h2>
+</ng-template>

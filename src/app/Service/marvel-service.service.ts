@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MarvelHero } from '../Marvel.model';
-import { Observable, Subject } from 'rxjs';
+import { Comments, MarvelHero } from '../Marvel.model';
+import { Observable, Subject, firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -42,15 +42,32 @@ export class MarvelServiceService {
     return this.http.post(this.commentsUrl, commentData)
   }
 
+  getComments(id: any) : Promise<string[]> {
+    const params = new HttpParams()
+    // .set("ts", 1)
+    .set("id", id)
+    return firstValueFrom(this.http.get<string[]>("/api/getComment", { params }));
+  }
 
 
-  heroList: Array<string> = []
+
+  heroList: any = []
   saveList(hero: any) {
     this.heroList = hero
   }
 
   retrieveHero() {
     return this.heroList
+  }
+
+  commentList: any = []
+  saveComments(comments: any) {
+    this.commentList = comments
+    console.log("in comment list service", this.commentList)
+  }
+
+  retrieveComments() {
+    return this.commentList
   }
 
   heroName: string = ""
