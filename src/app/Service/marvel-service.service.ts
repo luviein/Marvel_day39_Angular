@@ -12,9 +12,9 @@ export class MarvelServiceService {
   // private getOneHeroUrl = "http://localhost:8080/api/character/{id}"
   // private commentsUrl = "http://localhost:8080/api/comment"
 
-  private marvelUrl = "domineering-cellar-production.up.railway.app/api/characters"
-  private getOneHeroUrl = "domineering-cellar-production.up.railway.app/api/character/{id}"
-  private commentsUrl = "domineering-cellar-production.up.railway.app/api/comment"
+  private marvelUrl = "https://domineering-cellar-production.up.railway.app/api/characters"
+  private getOneHeroUrl = "https://domineering-cellar-production.up.railway.app/api/character/{id}"
+  private commentsUrl = "https://domineering-cellar-production.up.railway.app/api/comment"
 
   constructor(private http: HttpClient) { }
   getHeroName(name : string, limit: number = 20, offset: number = 0): Observable<any> {
