@@ -15,6 +15,7 @@ export class MarvelServiceService {
   private marvelUrl = "https://domineering-cellar-production.up.railway.app/api/characters"
   private getOneHeroUrl = "https://domineering-cellar-production.up.railway.app/api/character/{id}"
   private commentsUrl = "https://domineering-cellar-production.up.railway.app/api/comment"
+  private getCommentsUrl = "https://domineering-cellar-production.up.railway.app/api/getComment"
 
   constructor(private http: HttpClient) { }
   getHeroName(name : string, limit: number = 20, offset: number = 0): Observable<any> {
@@ -46,7 +47,7 @@ export class MarvelServiceService {
     const params = new HttpParams()
     // .set("ts", 1)
     .set("id", id)
-    return firstValueFrom(this.http.get<string[]>(this.commentsUrl, { params }));
+    return firstValueFrom(this.http.get<string[]>(this.getCommentsUrl, { params }));
   }
 
 
