@@ -46,7 +46,7 @@ export class MarvelServiceService {
     const params = new HttpParams()
     // .set("ts", 1)
     .set("id", id)
-    return firstValueFrom(this.http.get<string[]>("/api/getComment", { params }));
+    return firstValueFrom(this.http.get<string[]>(this.commentsUrl, { params }));
   }
 
 
