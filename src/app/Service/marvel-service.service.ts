@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Comments, MarvelHero } from '../Marvel.model';
-import { Observable, Subject, firstValueFrom } from 'rxjs';
+import { MarvelHero } from '../Marvel.model';
+import { Observable, firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

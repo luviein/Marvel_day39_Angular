@@ -1,7 +1,5 @@
-import { ChangeDetectorRef, Component, Input, NgZone, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SoundData } from 'kaboom';
-import { Subject, Subscription, Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { MarvelServiceService } from 'src/app/Service/marvel-service.service';
 
 @Component({
@@ -25,7 +23,6 @@ export class HeroListComponent implements OnInit {
 
     console.log("retrieved >>>>>",this.svc.retrieveHero())
     this.heroList = this.svc.retrieveHero()
-
     this.display()
   }
 
